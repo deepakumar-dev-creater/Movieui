@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -56,11 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
@@ -70,12 +68,6 @@ class _MyHomePageState extends State<MyHomePage> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
 
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       backgroundColor: (HexColor("#0e2455")),
       body: SafeArea(
@@ -83,13 +75,38 @@ class _MyHomePageState extends State<MyHomePage> {
           Positioned(
             width: width,
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.home),
-                Icon(Icons.home),
-                Icon(Icons.home),
-                Icon(Icons.home),
+                IconButton(
+                  onPressed: () => print("object"),
+                  icon: Icon(Icons.home),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(CupertinoIcons.compass_fill),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.play_circle_fill_rounded),
+                ),
+
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.bookmark),
+                ),
+                IconButton(
+                  onPressed: () {
+                    log(1);
+                  },
+                  icon: Icon(Icons.supervised_user_circle_outlined),
+                ),
+
+                // Icon(Icons.home),
+                // Icon(CupertinoIcons.compass_fill),
+                // Icon(Icons.play_circle_fill_rounded),
+                // Icon(Icons.bookmark),
+                // Icon(Icons.supervised_user_circle_outlined),
               ],
             ),
             bottom: 10,
@@ -269,11 +286,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ]),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
