@@ -67,224 +67,226 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    Size size = MediaQuery.of(context).size;
+    var currentIndex = 0;
 
     return Scaffold(
       backgroundColor: (HexColor("#0e2455")),
-      body: SafeArea(
-        child: Stack(children: [
-          Positioned(
-            width: width,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () => print("object"),
-                  icon: Icon(Icons.home),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(CupertinoIcons.compass_fill),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.play_circle_fill_rounded),
-                ),
-
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.bookmark),
-                ),
-                IconButton(
-                  onPressed: () {
-                    log(1);
-                  },
-                  icon: Icon(Icons.supervised_user_circle_outlined),
-                ),
-
-                // Icon(Icons.home),
-                // Icon(CupertinoIcons.compass_fill),
-                // Icon(Icons.play_circle_fill_rounded),
-                // Icon(Icons.bookmark),
-                // Icon(Icons.supervised_user_circle_outlined),
-              ],
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.transparent,
+        selectedItemColor: Colors.amber,
+        type: BottomNavigationBarType.fixed,
+        iconSize: 30,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
             ),
-            bottom: 10,
+            label: '',
           ),
-          ListView(
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.compass_fill),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.play_circle_fill_rounded,
+              size: width * 0.15,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.supervised_user_circle_outlined),
+            label: '',
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: ListView(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: <Widget>[
+                            Icon(
+                              Icons.location_on,
+                              color: HexColor("#6ad9f6"),
+                              size: 25,
+                            ),
+                            Text(
+                              "Chennai,IN",
+                              style: GoogleFonts.montserrat(
+                                  fontSize: 20, color: Colors.white60),
+                            ),
+                          ]),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(right: 10),
+                      child: Icon(
+                        Icons.search,
+                        size: 30,
+                        color: Colors.white60,
+                      ),
+                    )
+                  ],
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 60,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
                       Container(
-                        padding: EdgeInsets.all(10),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: <Widget>[
-                              Icon(
-                                Icons.location_on,
-                                color: HexColor("#6ad9f6"),
-                                size: 25,
+                        height: 50,
+                        width: 150,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 150,
+                              child: ListTile(
+                                title: Text(
+                                  'In Theaters',
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: 20, color: Colors.white60),
+                                ),
                               ),
-                              Text(
-                                "Chennai,IN",
-                                style: GoogleFonts.montserrat(
-                                    fontSize: 20, color: Colors.white60),
-                              ),
-                            ]),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(left: 18),
+                              height: 5,
+                              width: 50,
+                              color: HexColor("#b545bc"),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.search,
-                          size: 30,
-                          color: Colors.white60,
+                        height: 50,
+                        width: 150,
+                        child: ListTile(
+                          title: Text(
+                            'BoxOffice',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 20, color: Colors.white60),
+                          ),
                         ),
-                      )
+                      ),
+                      Container(
+                        height: 50,
+                        width: 150,
+                        child: ListTile(
+                          title: Text(
+                            'Movies',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 20, color: Colors.white60),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 150,
+                        child: ListTile(
+                          title: Text(
+                            'Orders',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 20, color: Colors.white60),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 60,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        Container(
-                          height: 50,
-                          width: 150,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 50,
-                                width: 150,
-                                child: ListTile(
-                                  title: Text(
-                                    'In Theaters',
-                                    style: GoogleFonts.montserrat(
-                                        fontSize: 20, color: Colors.white60),
-                                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 10),
+                  width: MediaQuery.of(context).size.width,
+                  height: 60,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      Container(
+                        height: 50,
+                        width: 80,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: HexColor("#6ad9f6"),
+                                  borderRadius: BorderRadius.circular(20)),
+                              height: 50,
+                              width: 100,
+                              child: ListTile(
+                                title: Text(
+                                  'All',
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.montserrat(
+                                      fontSize: 20, color: Colors.white60),
                                 ),
                               ),
-                              Container(
-                                margin: EdgeInsets.only(left: 18),
-                                height: 5,
-                                width: 50,
-                                color: HexColor("#b545bc"),
-                              )
-                            ],
-                          ),
-                        ),
-                        Container(
-                          height: 50,
-                          width: 150,
-                          child: ListTile(
-                            title: Text(
-                              'BoxOffice',
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 20, color: Colors.white60),
                             ),
-                          ),
+                          ],
                         ),
-                        Container(
-                          height: 50,
-                          width: 150,
-                          child: ListTile(
-                            title: Text(
-                              'Movies',
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 20, color: Colors.white60),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: 50,
-                          width: 150,
-                          child: ListTile(
-                            title: Text(
-                              'Orders',
-                              style: GoogleFonts.montserrat(
-                                  fontSize: 20, color: Colors.white60),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                      smallCards("Action"),
+                      smallCards("Crime"),
+                      smallCards("Romance"),
+                      smallCards("Mystery"),
+                      smallCards("Fantasy"),
+                      smallCards("Comedy")
+                    ],
                   ),
-                  SizedBox(
-                    height: 20,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 10),
+                  height: height * 0.50,
+                  width: MediaQuery.of(context).size.width,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      movieCards(height, width, "Moonlight",
+                          "https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_.jpg"),
+                      movieCards(height, width, "F9: The Fast Saga",
+                          "https://m.media-amazon.com/images/M/MV5BMjI0NmFkYzEtNzU2YS00NTg5LWIwYmMtNmQ1MTU0OGJjOTMxXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_.jpg"),
+                      movieCards(height, width, "Sonic the Hedgehog",
+                          "https://m.media-amazon.com/images/M/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4Mzgw._V1_.jpg"),
+                      movieCards(height, width, "Moonlight",
+                          "https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_.jpg"),
+                    ],
                   ),
-                  Container(
-                    padding: EdgeInsets.only(left: 10),
-                    width: MediaQuery.of(context).size.width,
-                    height: 60,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        Container(
-                          height: 50,
-                          width: 80,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    color: HexColor("#6ad9f6"),
-                                    borderRadius: BorderRadius.circular(20)),
-                                height: 50,
-                                width: 100,
-                                child: ListTile(
-                                  title: Text(
-                                    'All',
-                                    textAlign: TextAlign.center,
-                                    style: GoogleFonts.montserrat(
-                                        fontSize: 20, color: Colors.white60),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        smallCards("Action"),
-                        smallCards("Crime"),
-                        smallCards("Romance"),
-                        smallCards("Mystery"),
-                        smallCards("Fantasy"),
-                        smallCards("Comedy")
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 10),
-                    height: height * 0.50,
-                    width: MediaQuery.of(context).size.width,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        movieCards(height, width, "Moonlight",
-                            "https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_.jpg"),
-                        movieCards(height, width, "F9: The Fast Saga",
-                            "https://m.media-amazon.com/images/M/MV5BMjI0NmFkYzEtNzU2YS00NTg5LWIwYmMtNmQ1MTU0OGJjOTMxXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_.jpg"),
-                        movieCards(height, width, "Sonic the Hedgehog",
-                            "https://m.media-amazon.com/images/M/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4Mzgw._V1_.jpg"),
-                        movieCards(height, width, "Moonlight",
-                            "https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_.jpg"),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ]),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
