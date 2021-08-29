@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'Pages/Bookmark.dart';
+import 'Pages/Feed.dart';
+import 'Pages/Home.dart';
+import 'Pages/Profile.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -55,40 +60,44 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+  int selectedIndex = 0;
+final List<Widget> _pageOptions = [
+    HomePage(),
+    FeedPage(),
+    BookmarkPage(),
+    ProfilePage(),
+  ];
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    Size size = MediaQuery.of(context).size;
-    var currentIndex = 0;
 
     return Scaffold(
       backgroundColor: (HexColor("#0e2455")),
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 2,
         backgroundColor: Colors.transparent,
-        selectedItemColor: Colors.amber,
+        fixedColor: HexColor('#0e2455'),
+        selectedIconTheme: IconThemeData(color: HexColor('#b545bc')),
         type: BottomNavigationBarType.fixed,
         iconSize: 30,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        currentIndex: currentIndex,
+        currentIndex: selectedIndex,
         onTap: (index) {
           setState(() {
-            currentIndex = index;
+            selectedIndex = index;
+            print(index);
+            print('$selectedIndex value');
           });
         },
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
+              color: selectedIndex == 0 || selectedIndex == 2
+                  ? (HexColor("#6ad9f6"))
+                  : (Colors.black),
             ),
             label: '',
           ),
@@ -97,9 +106,29 @@ class _MyHomePageState extends State<MyHomePage> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.play_circle_fill_rounded,
-              size: width * 0.15,
+            icon: Container(
+              child: selectedIndex == 2
+                  ? Stack(
+                      children: [
+                        Positioned(
+                          bottom: 20,
+                          left: 20,
+                          child: Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(color: Colors.white),
+                          ),
+                        ),
+                        Icon(
+                          Icons.play_circle_fill_rounded,
+                          size: width * 0.15,
+                        ),
+                      ],
+                    )
+                  : (Icon(
+                      Icons.play_circle_fill_rounded,
+                      size: width * 0.15,
+                    )),
             ),
             label: '',
           ),
