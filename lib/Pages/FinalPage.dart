@@ -7,9 +7,11 @@ import 'package:shadow/shadow.dart';
 
 class FinalPage extends StatefulWidget {
   final String movielink;
+  final String id;
   FinalPage(
     this.movielink, {
     Key? key,
+    required this.id,
   }) : super(key: key);
 
   @override
@@ -20,9 +22,9 @@ class _FinalPageState extends State<FinalPage> {
   late Future<MovieModel> _movieModel;
   @override
   void initState() {
-    _movieModel = GetName().getMovie();
+    _movieModel = GetName(widget.id).getsingleMovie(widget.id);
     super.initState();
-    print(_movieModel);
+    print(widget.id);
   }
 
   Widget build(BuildContext context) {
@@ -62,6 +64,8 @@ class _FinalPageState extends State<FinalPage> {
                             child: Container(
                               padding: EdgeInsets.all(20),
                               child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
@@ -199,6 +203,42 @@ class _FinalPageState extends State<FinalPage> {
                                         height: 1.5,
                                         color: Colors.white60,
                                         fontSize: 18,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(10),
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        print('Hi there');
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                          padding: EdgeInsets.zero,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20))),
+                                      child: Ink(
+                                        decoration: BoxDecoration(
+                                            gradient: LinearGradient(colors: [
+                                              Colors.purple,
+                                              HexColor('#0e2455')
+                                            ]),
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Container(
+                                          width: double.infinity,
+                                          height: 50,
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            'BUY TICKETS',
+                                            style: GoogleFonts.montserrat(
+                                              fontSize: 20,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),

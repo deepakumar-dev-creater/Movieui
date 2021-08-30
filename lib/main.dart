@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
         bottomNavigationBar: BottomNavigationBar(
           elevation: 2,
           backgroundColor: Colors.transparent,
-          fixedColor: HexColor('#0e2455'),
+          fixedColor: Colors.amberAccent,
           selectedIconTheme: IconThemeData(color: HexColor('#b545bc')),
           type: BottomNavigationBarType.fixed,
           iconSize: 30,
@@ -96,12 +96,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 Icons.home,
                 color: selectedIndex == 0 || selectedIndex == 2
                     ? (HexColor("#6ad9f6"))
-                    : (Colors.black),
+                    : (Colors.white24),
               ),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.compass_fill),
+              icon: Icon(
+                CupertinoIcons.compass_fill,
+                color: selectedIndex == 1
+                    ? (HexColor("#6ad9f6"))
+                    : (Colors.white24),
+              ),
               label: '',
             ),
             BottomNavigationBarItem(
@@ -132,11 +137,21 @@ class _MyHomePageState extends State<MyHomePage> {
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.bookmark),
+              icon: Icon(
+                Icons.bookmark,
+                color: selectedIndex == 3
+                    ? (HexColor("#6ad9f6"))
+                    : (Colors.white24),
+              ),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.supervised_user_circle_outlined),
+              icon: Icon(
+                Icons.supervised_user_circle_outlined,
+                color: selectedIndex == 4
+                    ? (HexColor("#6ad9f6"))
+                    : (Colors.white24),
+              ),
               label: '',
             ),
           ],

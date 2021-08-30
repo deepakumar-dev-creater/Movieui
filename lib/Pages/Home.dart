@@ -174,14 +174,14 @@ class _HomePageState extends State<HomePage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    movieCards(height, width, "Moonlight",
+                    movieCards('tt4975722', height, width, "Moonlight",
                         "https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_.jpg"),
-                    movieCards(height, width, "F9: The Fast Saga",
+                    movieCards('tt5433138', height, width, "F9: The Fast Saga",
                         "https://m.media-amazon.com/images/M/MV5BMjI0NmFkYzEtNzU2YS00NTg5LWIwYmMtNmQ1MTU0OGJjOTMxXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_.jpg"),
-                    movieCards(height, width, "Sonic the Hedgehog",
+                    movieCards("tt3794354", height, width, "Sonic the Hedgehog",
                         "https://m.media-amazon.com/images/M/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4Mzgw._V1_.jpg"),
-                    movieCards(height, width, "Moonlight",
-                        "https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_.jpg"),
+                    movieCards('tt1375666', height, width, "Inception",
+                        "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg"),
                   ],
                 ),
               ),
@@ -192,13 +192,13 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget movieCards(height, width, name, movielink) {
+  Widget movieCards(id, height, width, name, movielink) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => FinalPage(movielink),
+            builder: (context) => FinalPage(movielink, id: id,),
           ),
         );
       },
