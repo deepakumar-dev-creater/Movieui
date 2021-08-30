@@ -6,7 +6,7 @@ import 'dart:convert';
 
 MovieModel welcomeFromJson(String str) => MovieModel.fromJson(json.decode(str));
 
-String MovieModelToJson(MovieModel data) => json.encode(data.toJson());
+String welcomeToJson(MovieModel data) => json.encode(data.toJson());
 
 class MovieModel {
     MovieModel({

@@ -185,6 +185,27 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 10),
+                height: height * 0.50,
+                width: MediaQuery.of(context).size.width,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    movieCards('tt4975722', height, width, "Tenet",
+                        "https://m.media-amazon.com/images/M/MV5BYzg0NGM2NjAtNmIxOC00MDJmLTg5ZmYtYzM0MTE4NWE2NzlhXkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg"),
+                    movieCards('tt7146812', height, width, "Onward",
+                        "https://m.media-amazon.com/images/M/MV5BNzE5MDhjNmQtZDIzNi00ZWYwLTgzZTEtMjFjOTFmY2E2NWI2XkEyXkFqcGdeQXVyMTA4NjE0NjEy._V1_.jpg"),
+                    movieCards("tt0816692", height, width, "Interstellar",
+                        "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg"),
+                    movieCards('tt7286456', height, width, "Joker",
+                        "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg"),
+                  ],
+                ),
+              ),
             ],
           ),
         ],
@@ -198,7 +219,10 @@ class _HomePageState extends State<HomePage> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => FinalPage(movielink, id: id,),
+            builder: (context) => FinalPage(
+              movielink,
+              id: id,
+            ),
           ),
         );
       },
