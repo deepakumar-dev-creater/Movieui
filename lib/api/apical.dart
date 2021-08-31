@@ -35,7 +35,7 @@ class GetName {
     var newValue;
 
     var response = await client.get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=f2a8179a58864b41a6ecce3ebba13f66'));
+        'https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=f2a8179a58864b41a6ecce3ebba13f66'));
     print(response.statusCode);
     if (response.statusCode == 200) {
       var jsonString = response.body;
