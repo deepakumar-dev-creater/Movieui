@@ -42,7 +42,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-  <img src="Output/outputscreen.PNG" alt="Logo" width="50%" height="50%">
+  <img src="Output/finalss.jpg" alt="Logo" width="100%" height="50%">
   
   "Movie app is done with flutter using  OMDBapi and newsapi with Ui clone of Dribble poster"
 
