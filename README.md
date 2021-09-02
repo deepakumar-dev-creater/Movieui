@@ -42,9 +42,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-  <img src="Output/outputscreen.PNG" alt="Logo" width="50%" height="50">
+  <img src="Output/outputscreen.PNG" alt="Logo" width="50%" height="50%">
   
-  "Elandhalir, a Helping organization for people needs your donations go a long way for needy people. We rely on your support to carry on our work to benefit of people who need us, Please come and join our community. "
+  "Movie app is done with flutter using  OMDBapi and newsapi with Ui clone of Dribble poster"
 
 ### Built With
 
