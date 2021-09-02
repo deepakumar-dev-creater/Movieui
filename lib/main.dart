@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:movieui/Pages/Movie.dart';
 
 import 'Pages/Bookmark.dart';
 import 'Pages/Feed.dart';
@@ -22,7 +23,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-       
         primarySwatch: Colors.deepPurple,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -32,8 +32,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  
 
   final String title;
 
@@ -46,9 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _pageOptions = [
     HomePage(),
     FeedPage(),
-    Center(
-      child: Text("center"),
-    ),
+    MoviePage(),
     BookmarkPage(),
     ProfilePage(),
   ];

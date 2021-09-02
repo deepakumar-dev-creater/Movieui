@@ -61,10 +61,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             child: Column(
                               children: [
                                 Text(
-                                  "Posts",
-                                  style: TextStyle(
-                                    color: Colors.redAccent,
-                                    fontSize: 22.0,
+                                  "Post",
+                                  style: GoogleFonts.montserrat(
+                                    color: HexColor("#6ad9f6"),
+                                    fontSize: 15.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -72,10 +72,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                   height: 5.0,
                                 ),
                                 Text(
-                                  "1200",
-                                  style: TextStyle(
+                                  "50",
+                                  style: GoogleFonts.montserrat(
                                     fontSize: 20.0,
-                                    color: Colors.pinkAccent,
+                                    color: Colors.white,
                                   ),
                                 )
                               ],
@@ -85,10 +85,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             child: Column(
                               children: [
                                 Text(
-                                  "Followers",
-                                  style: TextStyle(
-                                    color: Colors.redAccent,
-                                    fontSize: 22.0,
+                                  "Liked",
+                                  style: GoogleFonts.montserrat(
+                                    color: HexColor("#6ad9f6"),
+                                    fontSize: 16.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -97,9 +97,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                                 Text(
                                   "21.2K",
-                                  style: TextStyle(
+                                  style: GoogleFonts.montserrat(
                                     fontSize: 20.0,
-                                    color: Colors.pinkAccent,
+                                    color: Colors.white,
                                   ),
                                 )
                               ],
@@ -109,10 +109,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             child: Column(
                               children: [
                                 Text(
-                                  "Follow",
-                                  style: TextStyle(
-                                    color: Colors.redAccent,
-                                    fontSize: 22.0,
+                                  "Topic Followed",
+                                  style: GoogleFonts.montserrat(
+                                    color: HexColor("#6ad9f6"),
+                                    fontSize: 15.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -121,9 +121,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 ),
                                 Text(
                                   "1200",
-                                  style: TextStyle(
+                                  style: GoogleFonts.montserrat(
                                     fontSize: 20.0,
-                                    color: Colors.pinkAccent,
+                                    color: Colors.white,
                                   ),
                                 )
                               ],
