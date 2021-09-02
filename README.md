@@ -42,7 +42,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-  <img src="Output/outputscreen.PNG" alt="Logo" width="100%" height="800px">
+  <img src="Output/outputscreen.PNG" alt="Logo" width="90%" height="700px">
   
   "Elandhalir, a Helping organization for people needs your donations go a long way for needy people. We rely on your support to carry on our work to benefit of people who need us, Please come and join our community. "
 
