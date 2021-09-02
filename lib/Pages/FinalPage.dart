@@ -42,6 +42,10 @@ class _FinalPageState extends State<FinalPage> {
                   headerSliverBuilder: (context, innerBoxIsScrolled) {
                     return [
                       SliverAppBar(
+                        leading: Icon(
+                          Icons.arrow_back_ios_new,
+                          size: 30,
+                        ),
                         primary: true,
                         expandedHeight: height * 0.35,
                         floating: true,
@@ -50,7 +54,7 @@ class _FinalPageState extends State<FinalPage> {
                         flexibleSpace: FlexibleSpaceBar(
                           background: Image.network(
                             snapshot.data!.poster,
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fitWidth,
                           ),
                         ),
                       ),

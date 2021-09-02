@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -68,9 +69,13 @@ class _FeedPageState extends State<FeedPage> {
                               ),
                               child: AspectRatio(
                                 aspectRatio: 1,
-                                child: Image.network(
-                                  article.urlToImage,
+                                child: CachedNetworkImage(
+                                  imageUrl: article.urlToImage,
                                   fit: BoxFit.cover,
+                                  placeholder: (context, url) => Center(
+                                      child: new CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      new Icon(Icons.error),
                                 ),
                               ),
                             ),

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -33,13 +34,19 @@ class _BookmarkPageState extends State<BookmarkPage> {
                 clipBehavior: Clip.antiAlias,
                 child: Row(
                   children: [
+                    // "https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_.jpg",
                     Container(
                       padding: EdgeInsets.all(2),
                       child: AspectRatio(
                         aspectRatio: 1,
-                        child: Image.network(
-                          "https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_.jpg",
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              "https://m.media-amazon.com/images/M/MV5BNzQxNTIyODAxMV5BMl5BanBnXkFtZTgwNzQyMDA3OTE@._V1_.jpg",
                           fit: BoxFit.cover,
+                          placeholder: (context, url) =>
+                              Center(child: new CircularProgressIndicator()),
+                          errorWidget: (context, url, error) =>
+                              new Icon(Icons.error),
                         ),
                       ),
                     ),
@@ -86,9 +93,14 @@ class _BookmarkPageState extends State<BookmarkPage> {
                       padding: EdgeInsets.all(2),
                       child: AspectRatio(
                         aspectRatio: 2 / 2,
-                        child: Image.network(
-                          "https://m.media-amazon.com/images/M/MV5BMjI0NmFkYzEtNzU2YS00NTg5LWIwYmMtNmQ1MTU0OGJjOTMxXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_.jpg",
-                          fit: BoxFit.cover,
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              "https://m.media-amazon.com/images/M/MV5BMjI0NmFkYzEtNzU2YS00NTg5LWIwYmMtNmQ1MTU0OGJjOTMxXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_.jpg",
+                          fit: BoxFit.fill,
+                          placeholder: (context, url) =>
+                              Center(child: new CircularProgressIndicator()),
+                          errorWidget: (context, url, error) =>
+                              new Icon(Icons.error),
                         ),
                       ),
                     ),

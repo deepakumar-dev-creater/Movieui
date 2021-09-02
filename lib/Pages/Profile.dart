@@ -19,15 +19,15 @@ class _ProfilePageState extends State<ProfilePage> {
         title: Text("Profile"),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Container(
-              child: Container(
-            decoration: BoxDecoration(
-                border: Border.symmetric(horizontal: BorderSide.none)),
-            width: double.infinity,
-            height: 350.0,
-            child: Center(
+      body: ListView(children: [
+        Column(
+          children: [
+            Container(
+                child: Container(
+              decoration: BoxDecoration(
+                  border: Border.symmetric(horizontal: BorderSide.none)),
+              width: double.infinity,
+              height: 600,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -53,8 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   Container(
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0, vertical: 22.0),
+                      padding: EdgeInsets.only(right: 20),
                       child: Row(
                         children: [
                           Expanded(
@@ -107,6 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Expanded(
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Text(
                                   "Topic Followed",
@@ -132,72 +132,94 @@ class _ProfilePageState extends State<ProfilePage> {
                         ],
                       ),
                     ),
+                  ),
+                  SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0, top: 10),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Bio",
+                        style: GoogleFonts.montserrat(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(left: 15, right: 15, top: 10),
+                    child: Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                      style: GoogleFonts.montserrat(
+                          height: 1.5, color: Colors.white38, fontSize: 15),
+                    ),
                   )
                 ],
               ),
-            ),
-          )),
-          Container(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  // Text(
-                  //   'My name is Natasha and I am  a freelance mobile app developper.\n'
-                  //   'Having Experiece in Flutter and Android',
-                  //   style: TextStyle(
-                  //     fontSize: 22.0,
-                  //     fontStyle: FontStyle.italic,
-                  //     fontWeight: FontWeight.w300,
-                  //     color: Colors.black,
-                  //     letterSpacing: 2.0,
-                  //   ),
-                  // ),
-                ],
+            )),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 30.0, horizontal: 16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    // Text(
+                    //   'My name is Natasha and I am  a freelance mobile app developper.\n'
+                    //   'Having Experiece in Flutter and Android',
+                    //   style: TextStyle(
+                    //     fontSize: 22.0,
+                    //     fontStyle: FontStyle.italic,
+                    //     fontWeight: FontWeight.w300,
+                    //     color: Colors.black,
+                    //     letterSpacing: 2.0,
+                    //   ),
+                    // ),
+                  ],
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 20.0,
-          ),
-          // Container(
-          //   width: 300.00,
-          //   child: RaisedButton(
-          //       onPressed: () {},
-          //       shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(80.0)),
-          //       elevation: 0.0,
-          //       padding: EdgeInsets.all(0.0),
-          //       child: Ink(
-          //         decoration: BoxDecoration(
-          //           gradient: LinearGradient(
-          //               begin: Alignment.centerRight,
-          //               end: Alignment.centerLeft,
-          //               colors: [Colors.pink, Colors.pinkAccent]),
-          //           borderRadius: BorderRadius.circular(30.0),
-          //         ),
-          //         child: Container(
-          //           constraints:
-          //               BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
-          //           alignment: Alignment.center,
-          //           child: Text(
-          //             "Contact me",
-          //             style: TextStyle(
-          //                 color: Colors.white,
-          //                 fontSize: 26.0,
-          //                 fontWeight: FontWeight.w300),
-          //           ),
-          //         ),
-          //       )),
-          // ),
-        ],
-      ),
+            SizedBox(
+              height: 20.0,
+            ),
+            // Container(
+            //   width: 300.00,
+            //   child: RaisedButton(
+            //       onPressed: () {},
+            //       shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(80.0)),
+            //       elevation: 0.0,
+            //       padding: EdgeInsets.all(0.0),
+            //       child: Ink(
+            //         decoration: BoxDecoration(
+            //           gradient: LinearGradient(
+            //               begin: Alignment.centerRight,
+            //               end: Alignment.centerLeft,
+            //               colors: [Colors.pink, Colors.pinkAccent]),
+            //           borderRadius: BorderRadius.circular(30.0),
+            //         ),
+            //         child: Container(
+            //           constraints:
+            //               BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
+            //           alignment: Alignment.center,
+            //           child: Text(
+            //             "Contact me",
+            //             style: TextStyle(
+            //                 color: Colors.white,
+            //                 fontSize: 26.0,
+            //                 fontWeight: FontWeight.w300),
+            //           ),
+            //         ),
+            //       )),
+            // ),
+          ],
+        ),
+      ]),
     );
     // backgroundColor: HexColor("#0e2455"),
     // appBar: AppBar(

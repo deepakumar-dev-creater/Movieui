@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -235,10 +236,14 @@ class _HomePageState extends State<HomePage> {
                 width: width * 0.60,
                 height: height * 0.38,
                 margin: EdgeInsets.all(10),
+                child: CachedNetworkImage(
+                  imageUrl: movielink,
+                  placeholder: (context, url) =>
+                      Center(child: new CircularProgressIndicator()),
+                  errorWidget: (context, url, error) => new Icon(Icons.error),
+                ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40),
-                  image: DecorationImage(
-                      image: NetworkImage(movielink), fit: BoxFit.fill),
                 ),
               ),
               Container(
